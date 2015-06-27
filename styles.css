@@ -132,9 +132,10 @@ ul.stars span {
     clear: left;;
     float: left;
 }
-ul.stars li.maine a {
-    color: #002147; /* Old Glory Blue */
-}
+/* to "disable" a state:
+/* ul.stars li.maine a {
+/*    color: #002147; /* Old Glory Blue */
+/* } */
 ul.stars li.state::before {
     content: attr(data-name) " (" attr(data-abbreviation) "): Entered the Union on " attr(data-entry) ;   
      
