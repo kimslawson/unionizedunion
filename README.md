@@ -1,10 +1,6 @@
 # Unionized Union
 
-Interactive flag showing the adoption of marriage equality by state. 
-
-##Description
-
-This interactive HTML5 flag shows the progress of marriage equality over time, state-by-state. There are currently no plans to extend this project outside the scope of the United States. For more detailed information, visit [https://en.wikipedia.org/wiki/Same-sex_marriage_in_the_United_States](http://)
+Inspired by the [U.S. Supreme Court](https://twitter.com/SCOTUS)'s historic June 26, 2015 ruling, this interactive HTML5 flag shows the progress of marriage equality over time, state-by-state. There are currently no plans to extend this project outside the scope of the United States. For more detailed information, visit [https://en.wikipedia.org/wiki/Same-sex_marriage_in_the_United_States](http://)
 
 There may or may not be an easter egg.
 
