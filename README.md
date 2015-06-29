@@ -14,12 +14,12 @@ There may or may not be an easter egg.
 
 ##TODO
 
-* Fix star alignment at certain widths
-* Add marriage dates to states.
-* Add sorting
-* Add filtering
-* Responsive/mobile layout
-* Test in older browsers
+* Fix star alignment at certain widths;
+* Add marriage dates to states;
+* Add sorting;
+* Add filtering;
+* Responsive/mobile layout;
+* Test in older browsers ([please file an issue](https://github.com/kimslawson/unionizedunion/issues) if you find a bug!);
 * Fix ground/canton alignment.
 
 ##Acknowledgements
