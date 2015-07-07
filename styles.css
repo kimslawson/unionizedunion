@@ -125,7 +125,7 @@ ul.stars li.fixed-spacer {
     width: 3vw;
 }
 ul.stars li a {
-    display: block;
+    display: block; /* fix transform discontinuity */
     color: white;
     text-decoration: none;
     transition: transform .25s ease-in-out;
@@ -142,10 +142,23 @@ ul.stars span {
 /* ul.stars li.maine a {
 /*    color: #002147; /* Old Glory Blue */
 /* } */
+ul.stars li.state::after {
+    content: attr(data-abbreviation);
+    position: absolute;
+    font-size: 0.25em;
+    margin-top: -3.75em;
+    margin-left: 1.25em;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+ul.stars li.state:hover::after {
+    opacity: 1;
+    pointer-events:none;
+}
 ul.stars li.state::before {
-    content: attr(data-name) " (" attr(data-abbreviation) "): Entered the Union on " attr(data-entry) ;   
+    content: attr(data-name) " (" attr(data-abbreviation) "): Entered the Union on " attr(data-entry) "; equality enacted " attr(data-enacted) ", effective " attr(data-effective) ;   
      
-    font-size: 18px;
+    font-size: 18px; 
     position:absolute;
     z-index: 999;
     white-space:nowrap;
@@ -161,6 +174,9 @@ ul.stars li.state::before {
     opacity: 0;  
     transition: opacity 0.4s ease-out; 
     }
+ul.stars li.state::before:nth-word(2) {
+    color: red;
+}
      
 ul.stars li.state:hover::before {
     opacity: 1;
