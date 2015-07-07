@@ -125,8 +125,14 @@ ul.stars li.fixed-spacer {
     width: 3vw;
 }
 ul.stars li a {
+    display: block;
     color: white;
     text-decoration: none;
+    transition: transform .25s ease-in-out;
+}
+ul.stars li a:focus, ul.stars li a:hover, ul.stars li a:active {
+    transform: scale(1.5);
+    text-shadow: 0 0.5rem 0.25rem #000;
 }
 ul.stars span {
     clear: left;;
@@ -153,7 +159,7 @@ ul.stars li.state::before {
     height: 24px;
      
     opacity: 0;  
-    transition:opacity 0.4s ease-out; 
+    transition: opacity 0.4s ease-out; 
     }
      
 ul.stars li.state:hover::before {
