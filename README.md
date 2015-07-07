@@ -10,7 +10,8 @@ There may or may not be an easter egg.
 
 ##TODO
 
-* Fix star alignment at certain widths;
+* ~~Fix star alignment at certain widths~~;
+* Make stars bigger;
 * Add marriage dates to states;
 * Add sorting;
 * Add filtering;
