@@ -149,7 +149,7 @@ ul.stars li.state::after {
     margin-top: -3.75em;
     margin-left: 1.25em;
     opacity: 0;
-    transition: opacity .5s ease-in-out;
+    transition: opacity .25s ease-in-out;
 }
 ul.stars li.state:hover::after {
     opacity: 1;
