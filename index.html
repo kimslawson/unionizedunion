@@ -118,11 +118,18 @@
 <script src="isotope.pkgd.min.js"></script>
 <script src="packery-mode.pkgd.min.js"></script>
 <script>
+$(document).ready(function() {
+
     // konami code easter egg
     var easter_egg = new Konami(function() {
         var ground = document.querySelector('.ground');
         ground.classList.toggle('gay');
     });
+
+    $('ul.stars li.state a').click(function(evt) {
+        $(this).parent().toggleClass('clicked');
+        evt.preventDefault();
+    })
 
     $('ul.stars').isotope({
         getSortData: {
@@ -134,7 +141,8 @@
         layoutMode: 'packery',
         itemSelector: 'li.state',
         stamp: '.fixed-spacer',
-        sortBy: 'stateName'
+        sortBy: 'stateName',
+        isResizeBound: false
     });
     $('.sortcontainer').on( 'click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
@@ -148,10 +156,16 @@
             layoutMode: 'packery',
             itemSelector: 'li.state',
             stamp: '.fixed-spacer',
-            sortBy: sortByValue
+            sortBy: sortByValue,
+            isResizeBound: false,
+            transitionDuration: '1s'
         });
     });
 
+    $(window).resize(function(){
+        $('ul.stars').isotope({ transitionDuration: 0 });
+    });
+});
 </script></body></html><!--
 
     // sorting and filtering

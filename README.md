@@ -10,11 +10,12 @@ There may or may not be an easter egg.
 
 ##TODO
 
-* Add date sorting;
+* Fix date sorting;
 * Add filtering?;
-* Responsive/mobile layout;
+* Make a better responsive/mobile layout;
 * Test in older browsers ([please file an issue](https://github.com/kimslawson/unionizedunion/issues) if you find a bug!);
-* Fix ground/canton alignment.
+* Fix ground/canton alignment;
+* Fix Safari bug with animated tooltip.
 
 ##Acknowledgements
 

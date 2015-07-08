@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+}
+/* except firefox which is dumb */
+@-moz-document url-prefix() { body { margin-top: -3vw; } }
+
 div.flagcontainer {
     height: 60vw;
 }
@@ -113,6 +119,9 @@ ul.stars {
     height: 100%;
     padding-top: 0.5vw;
     padding-left: 0.3vw;
+/* compensate for isotope positioning */
+left: 0.5vw;
+top: 0.25vw;
 }
 ul.stars li {
     display: inline;
@@ -122,10 +131,13 @@ ul.stars li {
     width: 3vw;
     height: 3vw;
 }
+ul.stars li.state {
+    white-space: pre-wrap; /* for ::before rule below to allow for line breaks */
+}
 ul.stars li.fixed-spacer {
     padding: 0;
-    width: 1em;
-    height: .8em;
+    width: 3.5vw;
+    height: .7em;
     position: absolute;
     left: 0;
 }
@@ -137,10 +149,15 @@ ul.stars li a {
     display: block; /* fix transform discontinuity */
     color: white;
     text-decoration: none;
-    transition: transform .25s ease-in-out;
+    -webkit-transition: transform .25s ease-in-out;
+        -ms-transition: transform .25s ease-in-out;
+            transition: transform .25s ease-in-out;
 }
-ul.stars li a:focus, ul.stars li a:hover, ul.stars li a:active {
-    transform: scale(1.5);
+ul.stars li a:focus, ul.stars li a:hover, ul.stars li a:active,
+ul.stars li.clicked a {
+    -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+            transform: scale(1.5);
     text-shadow: 0 0.5rem 0.25rem #000, 0 0 2.5rem white;
 }
 ul.stars span {
@@ -154,34 +171,50 @@ ul.stars span {
 ul.stars li.state::after {
     content: attr(data-abbreviation);
     position: absolute;
-    font-size: 0.25em;
-    margin-top: -3.75em;
-    margin-left: 1.25em;
+    font-size: 0.26em;
+    margin-top: -3vw;
+    width: 3vw;
+    height: 3vw;
+    line-height: 3.5vw;
+    text-align: center;
     opacity: 0;
-    transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+        -ms-transition: opacity .25s ease-in-out;
+            transition: opacity .25s ease-in-out;
 }
-ul.stars li.state:hover::after {
+/* except firefox which is dumb */
+@-moz-document url-prefix() { ul.stars li.state::after { line-height: 2.5vw; } }
+
+ul.stars li.state:hover::after,
+ul.stars li.clicked::after {
     opacity: 1;
     pointer-events:none; /* state abbreviations don't intercept clicks */
 }
 ul.stars li.state::before {
-    content: attr(data-name) " (" attr(data-abbreviation) "): Entered the Union on " attr(data-entry) "; equality enacted " attr(data-enacted) ", effective " attr(data-effective) ;   
-     
+/*    content: attr(data-name) " (" attr(data-abbreviation) "): Entered the Union on " attr(data-entry) "; equality enacted " attr(data-enacted) ", effective " attr(data-effective) ;  */ 
+    content: attr(data-name) "\00a0(" attr(data-abbreviation) "): Entered\00a0the\00a0Union\00a0on\00a0" attr(data-entry) "; equality\00a0 enacted\00a0" attr(data-enacted) ", effective\00a0" attr(data-effective) "." ;   
+    display: inline;
+
     font-size: 18px; 
     position:absolute;
     z-index: 999;
-    white-space:nowrap;
+/*    white-space:nowrap; */
     top: 5vw;
     background:#000;
     color:#e0e0e0;
-    padding:0px 7px;
+    padding:0.25em 0.5em 0.3em 0.5em;
+    box-shadow: 0px 0px 1px white;
     line-height: 24px;
-    height: 24px;
+/*    height: 24px; */
+    width: 14.75em; /* crappy hardcoded value because of short states like Utah and Iowa */
      
     opacity: 0;  
-    transition: opacity 0.4s ease-out; 
+    -webkit-transition: opacity 0.4s ease-out; 
+        -ms-transition: opacity 0.4s ease-out; 
+            transition: opacity 0.4s ease-out; 
     pointer-events:none; /* tooltips don't intercept clicks */
 }
-ul.stars li.state:hover::before {
+ul.stars li.state:hover::before,
+ul.stars li.clicked::before {
     opacity: 1;
 }
