@@ -119,11 +119,20 @@ ul.stars li {
     float: left;
     padding: 0 1.6vw;
     line-height: 1em;
+    width: 3vw;
+    height: 3vw;
 }
 ul.stars li.fixed-spacer {
     padding: 0;
-    width: 3vw;
+    width: 1em;
+    height: .8em;
+    position: absolute;
+    left: 0;
 }
+.fixed-spacer.first { top: 4vw; }
+.fixed-spacer.second { top: 10vw; }
+.fixed-spacer.third { top: 16vw; }
+.fixed-spacer.fourth { top: 22vw; }
 ul.stars li a {
     display: block; /* fix transform discontinuity */
     color: white;
@@ -132,7 +141,7 @@ ul.stars li a {
 }
 ul.stars li a:focus, ul.stars li a:hover, ul.stars li a:active {
     transform: scale(1.5);
-    text-shadow: 0 0.5rem 0.25rem #000;
+    text-shadow: 0 0.5rem 0.25rem #000, 0 0 2.5rem white;
 }
 ul.stars span {
     clear: left;;
@@ -153,7 +162,7 @@ ul.stars li.state::after {
 }
 ul.stars li.state:hover::after {
     opacity: 1;
-    pointer-events:none;
+    pointer-events:none; /* state abbreviations don't intercept clicks */
 }
 ul.stars li.state::before {
     content: attr(data-name) " (" attr(data-abbreviation) "): Entered the Union on " attr(data-entry) "; equality enacted " attr(data-enacted) ", effective " attr(data-effective) ;   
@@ -162,9 +171,7 @@ ul.stars li.state::before {
     position:absolute;
     z-index: 999;
     white-space:nowrap;
-    bottom:9999px;
-    left: 10px;
-    top: 55vw;
+    top: 5vw;
     background:#000;
     color:#e0e0e0;
     padding:0px 7px;
@@ -173,12 +180,8 @@ ul.stars li.state::before {
      
     opacity: 0;  
     transition: opacity 0.4s ease-out; 
-    }
-ul.stars li.state::before:nth-word(2) {
-    color: red;
+    pointer-events:none; /* tooltips don't intercept clicks */
 }
-     
 ul.stars li.state:hover::before {
     opacity: 1;
-    bottom:-35px;
-    }
+}
