@@ -10,12 +10,11 @@ There may or may not be an easter egg.
 
 ##TODO
 
-* Fix date sorting;
-* Add filtering?;
-* Make a better responsive/mobile layout;
-* Test in older browsers ([please file an issue](https://github.com/kimslawson/unionizedunion/issues) if you find a bug!);
-* Fix ground/canton alignment;
-* Fix Safari bug with animated tooltip.
+* Add filtering?
+* Make a better responsive/mobile layout
+* Test in older browsers ([please file an issue](https://github.com/kimslawson/unionizedunion/issues) if you find a bug!)
+* Fix ground/canton alignment
+* Fix Safari bug with animated tooltip
 
 ##Acknowledgements
 
@@ -23,3 +22,9 @@ There may or may not be an easter egg.
 * Dates of statehood gratefully copied from [https://en.wikipedia.org/wiki/](http://)List_of_U.S._states_by_date_of_admission_to_the_Union
 * Flag hex colors courtesy of [http://london.usembassy.gov/rcflags.html](http://)
 * Pride flag hex colors relentlessly lifted from [http://gregdoolittle.com/blog/2011/12/15/css3-rainbow-flag/](http://)
+* Sorting and filtering made possible by [Isotope](http://isotope.metafizzy.co/) 
+* Layout powered by [Packery](http://packery.metafizzy.co/) (specifically, [Packery layout mode for Isotope](http://isotope.metafizzy.co/layout-modes/packery.html))
+
+##Colophon
+
+* Made on a Mac with Vico, GitBox, Solarized, and love.
