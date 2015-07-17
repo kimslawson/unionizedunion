@@ -5,12 +5,12 @@ body {
 @-moz-document url-prefix() { body { margin-top: -3vw; } }
 
 div.flagcontainer {
-    height: 60vw;
+    height: 53.55vw;
 }
 div.ground {
     background-color: #BB133E; /* Old Glory Red */
     width: 100%;
-    height: 53.95vw; /* should be 52.63157895vw but something is rotten in Denmark */
+    height: 53.55vw; /* should be 52.63157895vw but something is rotten in Denmark */
 /*TODO need to reverse    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent)); */
     background-image: -webkit-linear-gradient(transparent, transparent 50%, rgba(255, 255, 255, 1) 50%);
     background-image: -moz-linear-gradient(transparent, transparent 50%, rgba(255, 255, 255, 1) 50%);
@@ -146,59 +146,59 @@ ul.stars li.fixed-spacer {
 .fixed-spacer.third { top: 16vw; }
 .fixed-spacer.fourth { top: 22vw; }
 ul.stars li a {
-    display: block; /* fix transform discontinuity */
-    color: white;
-    text-decoration: none;
-    -webkit-transition: transform .25s ease-in-out;
-        -ms-transition: transform .25s ease-in-out;
-            transition: transform .25s ease-in-out;
+display: block; /* fix transform discontinuity */
+color: white;
+text-decoration: none;
+-webkit-transition: transform .25s ease-in-out;
+    -ms-transition: transform .25s ease-in-out;
+        transition: transform .25s ease-in-out;
 }
 ul.stars li a:focus, ul.stars li a:hover, ul.stars li a:active,
 ul.stars li.clicked a {
-    -webkit-transform: scale(1.5);
-        -ms-transform: scale(1.5);
-            transform: scale(1.5);
-    text-shadow: 0 0.5rem 0.25rem #000, 0 0 2.5rem white;
+-webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+        transform: scale(1.5);
+text-shadow: 0 0.5rem 0.25rem #000, 0 0 2.5rem white;
 }
 ul.stars span {
-    clear: left;;
-    float: left;
+clear: left;;
+float: left;
 }
 /* to "disable" a state:
 /* ul.stars li.maine a {
 /*    color: #002147; /* Old Glory Blue */
 /* } */
 ul.stars li.state::after {
-    content: attr(data-abbreviation);
-    position: absolute;
-    font-size: 0.26em;
-    margin-top: -3vw;
-    width: 3vw;
-    height: 3vw;
-    line-height: 3.5vw;
-    text-align: center;
-    opacity: 0;
-    -webkit-transition: opacity .25s ease-in-out;
-        -ms-transition: opacity .25s ease-in-out;
-            transition: opacity .25s ease-in-out;
+content: attr(data-abbreviation);
+position: absolute;
+font-size: 0.26em;
+margin-top: -3vw;
+width: 3vw;
+height: 3vw;
+line-height: 3.5vw;
+text-align: center;
+opacity: 0;
+-webkit-transition: opacity .25s ease-in-out;
+    -ms-transition: opacity .25s ease-in-out;
+        transition: opacity .25s ease-in-out;
 }
 /* except firefox which is dumb */
 @-moz-document url-prefix() { ul.stars li.state::after { line-height: 2.5vw; } }
 
 ul.stars li.state:hover::after,
 ul.stars li.clicked::after {
-    opacity: 1;
-    pointer-events:none; /* state abbreviations don't intercept clicks */
+opacity: 1;
+pointer-events:none; /* state abbreviations don't intercept clicks */
 }
 ul.stars li.state::before {
 /*    content: attr(data-name) " (" attr(data-abbreviation) "): Entered the Union on " attr(data-entry) "; equality enacted " attr(data-enacted) ", effective " attr(data-effective) ;  */ 
-    content: attr(data-name) "\00a0(" attr(data-abbreviation) "): Entered\00a0the\00a0Union\00a0on\00a0" attr(data-entry) "; equality\00a0 enacted\00a0" attr(data-enacted) ", effective\00a0" attr(data-effective) "." ;   
-    display: inline;
+content: attr(data-name) "\00a0(" attr(data-abbreviation) "): Entered\00a0the\00a0Union\00a0on\00a0" attr(data-entry) "; equality\00a0 enacted\00a0" attr(data-enacted) ", effective\00a0" attr(data-effective) "." ;   
+display: inline;
 
-    font-size: 18px; 
-    position:absolute;
+font-size: 18px; 
+position:absolute;
 /*    white-space:nowrap; */
-    top: 5vw;
+top: 5vw;
     background:#000;
     color:#e0e0e0;
     padding:0.25em 0.5em 0.3em 0.5em;
@@ -219,6 +219,8 @@ ul.stars li.clicked::before {
     opacity: 1;
 }
 
+/* Controls */
+
 div.sortcontainer {
     float: left;
     margin-bottom: 2em;
@@ -227,10 +229,28 @@ div.timecontainer {
     float: right;
 }
 
-#rangeControlledByDate {
-    width: 100%;
+/* style radio buttons to be flat with styles on label, hide round buttons */
+input[type=radio] {
+    display:none; 
+    margin:10px;
+}
+input[type=radio] + label {
+    display:inline-block;
+    margin:-2px;
+    padding: 4px 12px;
+    background-color: #e7e7e7;
+    border-color: #ddd;
+}
+input[type=radio]:checked + label { 
+    background-image: none;
+    background-color:#d0d0d0;
 }
 
-.isotope-hidden.isotope-item {
-    display: block !important;
+/* fix margin beside slider thumb */
+/*TODO don't bother since using f7 range
+#rangeControlledByDate {
+    width: 100%;
+    margin: 0;
 }
+*/
+

@@ -4,6 +4,7 @@
 <head>
     <title>Unionized Union</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="framework7.min.css" />
     <link rel="stylesheet" href="styles.css" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
@@ -95,10 +96,10 @@
 <div class="controlcontainer">
     <div class="sortcontainer">
         <span>Sort by:</span>
-        <button class="sortby" data-sort-by="stateName">State Name</button>
-        <button class="sortby" data-sort-by="entry">Entry Date</button>
-        <button class="sortby" data-sort-by="enacted">Enacted Date</button>
-        <button class="sortby" data-sort-by="effective">Effective Date</button>
+        <input type="radio" name="sorts" class="sortby" id="sortByStateNameButton" data-sort-by="stateName" checked><label for="sortByStateNameButton">State Name</label>
+        <input type="radio" name="sorts" class="sortby" id="sortByEntryButton" data-sort-by="entry"><label for="sortByEntryButton">Entry Date</label>
+        <input type="radio" name="sorts" class="sortby" id="sortByEnactedButton" data-sort-by="enacted"><label for="sortByEnactedButton">Enacted Date</label>
+        <input type="radio" name="sorts" class="sortby" id="sortByEffectiveButton" data-sort-by="effective"><label for="sortByEffectiveButton">Effective Date</label>
     </div>
     <div class="timecontainer">
 <!--
@@ -108,8 +109,12 @@
         <form>
             <span>Marriage equality legal since:</span>
             <!-- 86400000 = 1day -->
-            <input type="date" max="2015-06-26" min="2003-11-17" value="2015-06-26" id="dateControlledByRange" />
-            <input type="range" step="86400000" max="1435276800000" min="1069027200000" value="1435276800000" id="rangeControlledByDate" />
+            <div class="list-block"><div class="item-input">
+                <input type="date" max="2015-06-26" min="2003-11-17" value="2015-06-26" id="dateControlledByRange" />
+            </div></div>
+            <div class="item-input"><div class="range-slider">
+                <input type="range" step="86400000" max="1435276800000" min="1069027200000" value="1435276800000" id="rangeControlledByDate" />
+            </div></div>
         </form>
     </div>
     <script>
@@ -156,7 +161,7 @@ $(document).ready(function() {
         sortBy: 'stateName',
         isResizeBound: false
     });
-    $('.sortcontainer').on( 'click', 'button', function() {
+    $('.sortcontainer').on( 'click', '.sortby', function() {
         var sortByValue = $(this).attr('data-sort-by');
         $('ul.stars').isotope({
             getSortData: {
@@ -182,7 +187,7 @@ $(document).ready(function() {
     $('#dateControlledByRange').on('input', function() {
         $('#rangeControlledByDate').prop('valueAsNumber', $.prop(this, 'valueAsNumber'));
     });
-    $('#rangeControlledByDate').on('input', function() {
+    $('#rangeControlledByDate').on('input', function() { // or 'input change'
         $('#dateControlledByRange').prop('valueAsNumber', $.prop(this, 'valueAsNumber'));
 
 /* isotope filtering
