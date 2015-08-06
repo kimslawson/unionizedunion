@@ -278,6 +278,9 @@ h1 {
     text-shadow: 0px 1px black;
 
 }
+a:hover {
+    text-decoration: underline;
+}
 div.description {
     width: 49vw;
     display: inline-block;

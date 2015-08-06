@@ -153,10 +153,12 @@ $(document).ready(function() {
 
     $('span.open a').click(function(evt) {
         $('div.information').slideDown();
+        $(this).fadeToggle();
         evt.preventDefault();
     })
     $('span.close a').click(function(evt) {
         $('div.information').slideUp();
+        $('span.open a').fadeToggle();
         evt.preventDefault();
     })
     $('ul.stars li.state a').click(function(evt) {
