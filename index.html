@@ -33,8 +33,19 @@
 <!-- “your compulsory civics lesson for current events” -->
 
 <body>
+<div class="information">
+    <div class="star">
+        <h1>Unionized<br />Union</h1>
+    </div>
+    <div class="description">
+        <p>Inspired by the U.S. Supreme Court's historic June 26, 2015 ruling, this interactive HTML5 flag shows the progress of marriage equality over time, state-by-state.</p>
+        <span class="close"><a href="#">Okay, got it.</a></span>
+        <span class="whodunit"><a href="http://slawson.org/" target="_blank" title="Kim Slawson">Whodunit?</a></span>
+    </div>
+</div>
 <div class="flagcontainer">
 <div class="ground">
+        <span class="open"><a href="#">What&rsquo;s all this about?</a></span>
 <div class="canton">
 <ul class="stars">
 <li id="state1" class="state delaware" data-name="Delaware" data-abbreviation="DE" data-entry="1787-12-09" data-enacted="2013-05-07" data-effective="2013-07-01"><a href="#">★</a></li>
@@ -140,6 +151,14 @@ $(document).ready(function() {
         ground.classList.toggle('gay');
     });
 
+    $('span.open a').click(function(evt) {
+        $('div.information').slideDown();
+        evt.preventDefault();
+    })
+    $('span.close a').click(function(evt) {
+        $('div.information').slideUp();
+        evt.preventDefault();
+    })
     $('ul.stars li.state a').click(function(evt) {
         $(this).parent().toggleClass('clicked');
 //        console.log( $(this).parent().data('entry') ); 

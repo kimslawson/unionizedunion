@@ -254,3 +254,49 @@ input[type=radio]:checked + label {
 }
 */
 
+/* information */
+div.information {
+    height: 42vw;
+    display: none;
+}
+div.star {
+    background-image: url('star.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 40vw;
+    min-height: 40vw;
+    text-align: center;
+    color: white;
+    vertical-align: top;
+    display: inline-block;
+}
+h1 {
+    margin: 16vw 0 0 0;
+    font-size: 4.5vw;
+    line-height: 1em;
+    text-shadow: 0px 1px black;
+
+}
+div.description {
+    width: 49vw;
+    display: inline-block;
+}
+div.description p {
+    max-width: 28em;
+    font-size: 3vw;
+    margin-top: 2.5vw;
+}
+span.close {
+    display: inline-block;
+}
+span.open {
+    display: inline-block;
+    float: right;
+    line-height: 4vw;
+    margin-right: 2.25vw;
+}
+span.open a {
+    color: white;
+    text-shadow: 0px 1px black;
+}
