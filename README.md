@@ -13,8 +13,6 @@ There may or may not be an easter egg.
 * Fix continuous filtering
 * support filtering from direct text input
 * integrate controls into flag or at least make the design harmonious
-* make sort options actual depressable radio buttons that show state
-* add on page text/title/description somewhere
 * Make a better responsive/mobile layout
 * Test in older browsers ([please file an issue](https://github.com/kimslawson/unionizedunion/issues) if you find a bug!)
 * Fix ground/canton alignment
