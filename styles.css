@@ -291,7 +291,11 @@ div.description p {
     margin-top: 8.5vw;
 }
 span.close {
+    float: left;
     display: inline-block;
+}
+span.whodunit {
+    float: right;
 }
 span.open {
     display: inline-block;
@@ -302,4 +306,11 @@ span.open {
 span.open a {
     color: white;
     text-shadow: 0px 1px black;
+}
+@media screen and (max-width: 400px) {
+    span.open,
+    span.close,
+    span.whodunit {
+        font-size: 12px;
+    }
 }
