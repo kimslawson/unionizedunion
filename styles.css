@@ -282,13 +282,13 @@ a:hover {
     text-decoration: underline;
 }
 div.description {
-    width: 49vw;
+    width: 45vw;
     display: inline-block;
 }
 div.description p {
     max-width: 28em;
-    font-size: 3vw;
-    margin-top: 2.5vw;
+    font-size: 2.7vw;
+    margin-top: 8.5vw;
 }
 span.close {
     display: inline-block;
